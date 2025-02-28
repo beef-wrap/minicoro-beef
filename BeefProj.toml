@@ -1,0 +1,13 @@
+FileVersion = 1
+
+[Project]
+Name = "minicoro-beef"
+TargetType = "BeefLib"
+StartupObject = "minicoro_beef.Program"
+
+[Configs.Debug.Win64]
+CLibType = "DynamicDebug"
+LibPaths = ["$(ProjectDir)\\libs\\minicorod.lib"]
+
+[Configs.Release.Win64]
+LibPaths = ["$(ProjectDir)\\libs\\minicoro.lib"]
