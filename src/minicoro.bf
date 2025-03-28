@@ -248,7 +248,7 @@ public static class minicoro
 	typealias char = char8;
 
 	/* Coroutine states. */
-	public enum mco_state
+	public enum mco_state : c_int
 	{
 		MCO_DEAD = 0, /* The coroutine has finished normally or was uninitialized before finishing. */
 		MCO_NORMAL, /* The coroutine is active but not running (that is, it has resumed another coroutine). */
@@ -257,7 +257,7 @@ public static class minicoro
 	}
 
 	/* Coroutine result codes. */
-	public enum mco_result
+	public enum mco_result : c_int
 	{
 		MCO_SUCCESS = 0,
 		MCO_GENERIC_ERROR,
@@ -347,7 +347,7 @@ public static class minicoro
 
 	/* Misc functions. */
 
-	[CLink] public static extern mco_coro* mco_running(void); /* Returns the running coroutine for the current thread. */
+	[CLink] public static extern mco_coro* mco_running(); /* Returns the running coroutine for the current thread. */
 
 	[CLink] public static extern char* mco_result_description(mco_result res); /* Get the description of a result. */
 }
